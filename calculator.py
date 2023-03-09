@@ -9,35 +9,11 @@ def button_click(number):
     val.delete(0, END)
     val.insert(0, str(current) + str(number))
 
-def func_add():
+def func_ops(status):
     first_num = int(val.get())
     global f_num 
     global math
-    math = "add"
-    f_num = int(first_num)
-    val.delete(0, END)
-
-def func_sub():
-    first_num = int(val.get())
-    global f_num 
-    global math
-    math = "sub"
-    f_num = int(first_num)
-    val.delete(0, END)
-
-def func_mul():
-    first_num = int(val.get())
-    global f_num 
-    global math
-    math = "mul"
-    f_num = int(first_num)
-    val.delete(0, END)
-
-def func_div():
-    first_num = int(val.get())
-    global f_num 
-    global math
-    math = "div"
+    math = status
     f_num = int(first_num)
     val.delete(0, END)
 
@@ -64,13 +40,13 @@ button_7 = Button(root, text='7', padx=40, pady=20, command=lambda: button_click
 button_8 = Button(root, text='8', padx=40, pady=20, command=lambda: button_click(8))
 button_9 = Button(root, text='9', padx=40, pady=20, command=lambda: button_click(9))
 button_0 = Button(root, text='0', padx=40, pady=20, command=lambda: button_click(0))
-button_plus = Button(root, text='+', padx=39, pady=20, command=func_add)
+button_plus = Button(root, text='+', padx=39, pady=20, command= lambda: func_ops('add'))
 button_equal = Button(root, text='=', padx=86, pady=20, command=func_equals)
 button_clear = Button(root, text='clear', padx=78, pady=20, command=lambda: val.delete(0, END))
 
-button_sub = Button(root, text='-', padx=41, pady=20, command=func_sub)
-button_mul = Button(root, text='*', padx=40, pady=20, command=func_mul)
-button_div = Button(root, text='/', padx=40, pady=20, command=func_div)
+button_sub = Button(root, text='-', padx=41, pady=20, command= lambda: func_ops('sub'))
+button_mul = Button(root, text='*', padx=40, pady=20, command= lambda: func_ops('mul'))
+button_div = Button(root, text='/', padx=40, pady=20, command= lambda: func_ops('div'))
 
 button_1.grid(row=3, column=0)
 button_2.grid(row=3, column=1)
